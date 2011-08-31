@@ -11,7 +11,7 @@ namespace EnergyCAP
 {
 
 
-    public partial class _Default
+    public partial class Meters
     {
     }
 }

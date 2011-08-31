@@ -1,0 +1,60 @@
+﻿/*
+
+	EnergyCAP Interview Project CSS 
+	by Joshua Grosser
+	joshua.grosser@gmail.com
+	
+*/
+
+/* Global Styles
+------------------------------------------------------------------
+ */
+
+a:link, a:visited, a:active
+{
+    font-size: small;
+    color: #0084A9;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover
+{
+    font-size: small;
+    color: #0084A9;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+p
+{
+    padding: 2px 0px 2px 0px;
+}
+
+h1
+{
+    font-family: Verdana, Tahoma, Geneva, sans-serif;
+    color: #000;
+    font-size: 20px;
+	font-weight: normal;
+	padding: 8px 0px 2px 0px;
+}
+
+h2
+{
+    font-family: Century Gothic, "Lucida Sans", "Lucida Grande", Lucida, sans-serif;
+    color: #000;
+    font-size: x-large;
+	font-weight: normal;
+	padding: 10px 0px 10px 0px;
+}
+
+h3
+{
+    font-family: Georgia, "New Century Schoolbook", "Nimbus Roman No9 L", serif;
+    color: #000;
+    font-size: large;
+	font-weight: normal;
+	line-height: 25px;
+	padding: 10px 0px 10px 0px;
+}

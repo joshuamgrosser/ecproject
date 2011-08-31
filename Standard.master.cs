@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace EnergyCAP
 {
-    public partial class _Default : System.Web.UI.Page
+    public partial class Standard : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

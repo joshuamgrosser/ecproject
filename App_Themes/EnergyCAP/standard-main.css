@@ -1,0 +1,76 @@
+﻿/*
+
+	EnergyCAP Interview Project CSS 
+	by Joshua Grosser
+	joshua.grosser@gmail.com
+	
+*/
+
+/* document styles */
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    color: #787878;
+    font-family: Verdana, Tahoma, Geneva, sans-serif;
+    font-size: small;
+    background-color: #fff;
+}
+
+/* DIV styles */
+
+#container
+{
+    width: 900px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#wrap
+{
+    width: 880px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#header
+{
+	height: 30px;
+	padding: 0 15px 0 15px;
+	background-image: url('Images/top.png');
+}
+
+#menu
+{
+    /*height: 30px;
+    padding: 0 15px 0 15px;*/
+    background-image: url('Images/middle.png');
+}
+
+#content
+{
+    min-height: 400px;
+    padding: 0 15px 0 15px;
+    background-image: url('Images/middle.png');
+}
+
+#footer
+{
+    height: 30px;
+    padding: 0 15px 0 15px;
+    background-image: url('Images/bottom.png');
+    text-align: center;
+}
+
+#footer a
+{
+    font-size: x-small;
+}

@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EnergyCAP.Account
+namespace EnergyCAP
 {
 
 
-    public partial class ChangePasswordSuccess
+    public partial class Main
     {
     }
 }
