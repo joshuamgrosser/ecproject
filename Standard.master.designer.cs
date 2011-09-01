@@ -31,15 +31,6 @@ namespace EnergyCAP {
         protected global::System.Web.UI.HtmlControls.HtmlForm frmMain;
         
         /// <summary>
-        /// cphHeader control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cphHeader;
-        
-        /// <summary>
         /// NavigationMenu control.
         /// </summary>
         /// <remarks>
@@ -56,14 +47,5 @@ namespace EnergyCAP {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder cphContent;
-        
-        /// <summary>
-        /// cphFooter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cphFooter;
     }
 }

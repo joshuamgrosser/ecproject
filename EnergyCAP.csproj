@@ -54,7 +54,8 @@
     <Content Include="App_Themes\EnergyCAP\standard-global.css" />
     <Content Include="App_Themes\EnergyCAP\standard-main.css" />
     <Content Include="Bills.aspx" />
-    <Content Include="Building.aspx" />
+    <Content Include="Buildings.aspx" />
+    <Content Include="Error.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Meters.aspx" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
@@ -86,15 +87,23 @@
     <Compile Include="Bills.aspx.designer.cs">
       <DependentUpon>Bills.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DataAccessLayer.cs" />
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Building.aspx.cs">
-      <DependentUpon>Building.aspx</DependentUpon>
+    <Compile Include="Buildings.aspx.cs">
+      <DependentUpon>Buildings.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Building.aspx.designer.cs">
-      <DependentUpon>Building.aspx</DependentUpon>
+    <Compile Include="Buildings.aspx.designer.cs">
+      <DependentUpon>Buildings.aspx</DependentUpon>
     </Compile>
     <Compile Include="Meters.aspx.cs">
       <DependentUpon>Meters.aspx</DependentUpon>
@@ -104,6 +113,7 @@
       <DependentUpon>Meters.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SessionConstants.cs" />
     <Compile Include="Standard.master.cs">
       <DependentUpon>Standard.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

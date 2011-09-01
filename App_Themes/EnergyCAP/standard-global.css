@@ -6,9 +6,7 @@
 	
 */
 
-/* Global Styles
-------------------------------------------------------------------
- */
+/* Global HTML Tag Styles */
 
 a:link, a:visited, a:active
 {
@@ -42,19 +40,19 @@ h1
 
 h2
 {
-    font-family: Century Gothic, "Lucida Sans", "Lucida Grande", Lucida, sans-serif;
+    font-family: Verdana, Tahoma, Geneva, sans-serif;
     color: #000;
-    font-size: x-large;
-	font-weight: normal;
-	padding: 10px 0px 10px 0px;
+    font-size: 16px;
+	font-weight: bold;
+	padding: 8px 0px 2px 0px;
 }
 
 h3
 {
-    font-family: Georgia, "New Century Schoolbook", "Nimbus Roman No9 L", serif;
+    font-family: Verdana, Tahoma, Geneva, sans-serif;
     color: #000;
-    font-size: large;
-	font-weight: normal;
+    font-size: 14px;
+	font-weight: bold;
 	line-height: 25px;
-	padding: 10px 0px 10px 0px;
+	padding: 8px 0px 2px 0px;
 }

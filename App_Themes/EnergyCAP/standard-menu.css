@@ -1,5 +1,12 @@
-﻿/* TAB MENU   
-----------------------------------------------------------*/
+﻿/*
+
+	EnergyCAP Interview Project CSS 
+	by Joshua Grosser
+	joshua.grosser@gmail.com
+	
+*/
+
+/* Menu Styles */
 
 div.hideSkiplink
 {
@@ -24,7 +31,6 @@ div.menu ul
 div.menu ul li a, div.menu ul li a:visited
 {
     background-color: #99BB00;
-    /*border: 1px #99BB00 solid;*/
     color: #fff;
     display: block;
     line-height: 1.35em;
@@ -45,12 +51,4 @@ div.menu ul li a:active
     background-color: #99BB00;
     color: #fff;
     text-decoration: none;
-}
-
-/* MISC  
-----------------------------------------------------------*/
-
-.clear
-{
-    clear: both;
 }

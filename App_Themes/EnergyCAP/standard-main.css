@@ -6,7 +6,8 @@
 	
 */
 
-/* document styles */
+/* Document Styles */
+
 *
 {
     margin: 0;
@@ -21,7 +22,7 @@ body
     background-color: #fff;
 }
 
-/* DIV styles */
+/* Divider Styles */
 
 #container
 {
@@ -50,8 +51,6 @@ body
 
 #menu
 {
-    /*height: 30px;
-    padding: 0 15px 0 15px;*/
     background-image: url('Images/middle.png');
 }
 
@@ -73,4 +72,11 @@ body
 #footer a
 {
     font-size: x-small;
+}
+
+/* Misc Styles */
+
+.clear
+{
+    clear: both;
 }

@@ -11,7 +11,7 @@ namespace EnergyCAP
 {
 
 
-    public partial class Main
+    public partial class Error
     {
     }
 }
