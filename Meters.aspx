@@ -6,7 +6,7 @@
         Click the <strong>Select</strong> button next to a particular meter to view the
         <strong>Bills</strong> associated with that meter.</p>
     <p>
-        You are currently viewing meters for: <asp:Label runat="server" ID="lblBuilding"></asp:Label>.
+        <asp:Label runat="server" ID="lblBuilding"></asp:Label>
     </p>
     <p>
         <asp:GridView ID="grdMeters" runat="server" AllowSorting="False" AutoGenerateColumns="False"

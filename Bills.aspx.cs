@@ -48,15 +48,15 @@ namespace EnergyCAP
             param.ParameterName = "@MeterInfoID";
             param.Value = meterID;
 
-            DataTable resultTable = DataAccessLayer.getMeterName(param);
+            string result = DataAccessLayer.getMeterName(param);
 
-            if (resultTable.Rows.Count > 0)
+            if (result != null)
             {
-                lblMeter.Text = resultTable.Rows[0].ItemArray[0].ToString();
+                lblMeter.Text = "You are currently viewing bills for " + result + ".";
             }
             else
             {
-                lblMeter.Text = "No meter is currently selected";
+                lblMeter.Text = "No meter is selected.";
             }
         }
 

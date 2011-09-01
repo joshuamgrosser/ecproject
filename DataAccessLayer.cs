@@ -84,24 +84,24 @@ namespace EnergyCAP
         /// Queries the database for a single building name, given the building ID.
         /// </summary>
         /// <param name="buildingID">The building ID.</param>
-        /// <returns>A DataTable containing the query results.</returns>
-        public static DataTable getBuildingName(params SqlParameter[] buildingID)
+        /// <returns>A string containing the query results.</returns>
+        public static string getBuildingName(params SqlParameter[] buildingID)
         {
-            return executeQuery(sqlGetBuildingName, buildingID);
+            return executeScalarQuery(sqlGetBuildingName, buildingID);
         }
 
         /// <summary>
         /// Queries the database for a single building name, given the building ID.
         /// </summary>
         /// <param name="buildingID">The building ID.</param>
-        /// <returns>A DataTable containing the query results.</returns>
-        public static DataTable getMeterName(params SqlParameter[] meterID)
+        /// <returns>A string containing the query results.</returns>
+        public static string getMeterName(params SqlParameter[] meterID)
         {
-            return executeQuery(sqlGetMeterName, meterID);
+            return executeScalarQuery(sqlGetMeterName, meterID);
         }
 
         /// <summary>
-        /// Executes the selected SQL query.
+        /// Executes the selected SQL query in order to receive a result table.
         /// </summary>
         /// <param name="queryString">The query string to execute.</param>
         /// <param name="paramsArray">SQL query parameters.</param>
@@ -147,6 +147,58 @@ namespace EnergyCAP
                 sqlCommand.Dispose();
                 connection.Close();
             }
+        }
+
+        /// <summary>
+        /// Executes the selected SQL query in order to retrieve a single result.
+        /// </summary>
+        /// <param name="queryString">The query string to execute.</param>
+        /// <param name="paramsArray">SQL query parameters.</param>
+        /// <returns>A string containing the query results.</returns>
+        protected static String executeScalarQuery(string queryString, params SqlParameter[] paramsArray)
+        {
+            // Initialize the DB connection
+            SqlConnection connection = new SqlConnection(connectionStr);
+
+            // Init result string
+            string result = string.Empty;
+
+            // Initialize the command
+            SqlCommand sqlCommand = new SqlCommand(queryString, connection);
+            DataTable dt = new DataTable();
+
+            // Open the connection
+            if (connection.State == ConnectionState.Closed || connection.State == ConnectionState.Broken)
+            {
+                connection.Open();
+            }
+
+            // Add the parameters to the command
+            if (paramsArray != null)
+            {
+                foreach (SqlParameter param in paramsArray)
+                {
+                    sqlCommand.Parameters.Add(param);
+                }
+            }
+
+            try
+            {
+                // Execute the query
+                result = (String)sqlCommand.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                string test = ex.Message;
+            }
+            finally
+            {
+                // Cleanup
+                sqlCommand.Dispose();
+                connection.Close();
+            }
+
+            return result;
         }
     }
 }

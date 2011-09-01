@@ -7,7 +7,7 @@
     <p>
         This page shows the <strong>Bills</strong> associated with the selected meter.</p>
     <p>
-        You are currently viewing bills for: <asp:Label runat="server" ID="lblMeter"></asp:Label>.
+        <asp:Label runat="server" ID="lblMeter"></asp:Label>
     </p>
     <p>
         <asp:GridView ID="grdBills" runat="server" AllowSorting="False" AutoGenerateColumns="False"

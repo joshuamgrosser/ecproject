@@ -48,14 +48,15 @@ namespace EnergyCAP
             param.ParameterName = "@buildingID";
             param.Value = buildingID;
 
-            DataTable resultTable = DataAccessLayer.getBuildingName(param);
-            if (resultTable.Rows.Count > 0)
+            string result = DataAccessLayer.getBuildingName(param);
+            
+            if (result != null)
             {
-                lblBuilding.Text = resultTable.Rows[0].ItemArray[0].ToString();
+                lblBuilding.Text = " You are currently viewing meters for " + result + ".";
             }
             else
             {
-                lblBuilding.Text = "No building is currently selected";
+                lblBuilding.Text = "No building is selected.";
             }
         }
 
