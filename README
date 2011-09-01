@@ -1,0 +1,12 @@
+EnergyCAP, Inc. Interview Project
+by J. Grosser
+
+*** Requirements ***
+- Visual Studio 2010
+- SQL Server Express 2008 R2
+- Microsoft IIS 7+
+
+*** Build Instructions ***
+- Open the solution file (EnergyCAP.sln) in Visual studio.
+- Modify the database connection string in web.config to match your local EnergyCAP database.
+- Click the "Run" button in Visual Studio to launch the web application.
