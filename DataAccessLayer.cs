@@ -189,7 +189,7 @@ namespace EnergyCAP
             }
             catch (Exception ex)
             {
-                string test = ex.Message;
+                throw ex;
             }
             finally
             {
