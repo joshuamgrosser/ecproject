@@ -8,42 +8,42 @@
         Update the desired fields for the selected building, then click <strong>Submit 
         Changes</strong> when finished.<br />
     </p>
-    <table class="ecapTable">
+    <table style="width:600px;">
         <tr>
-            <td class="ecapHeader">
-                <strong>Item</strong>
-            </td>
-            <td class="ecapHeader">
+            <th style="width:200px;">
+                <strong>Field</strong>
+            </th>
+            <th>
                 <strong>Value</strong>
-            </td>
+            </th>
         </tr>
         <tr>
-            <td class="ecapRowName">
+            <td>
                 <p>Building Code</p>
             </td>
-            <td class="ecapRow">
+            <td>
                 <asp:TextBox ID="txtBuildingCode" Width="50%" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td class="ecapRowName">
+            <td>
                 <p>Building Name</p>
             </td>
-            <td class="ecapRow">
+            <td>
                 <asp:TextBox ID="txtBuildingName" Width="100%" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td class="ecapRowName">
+            <td>
                 <p>Building Memo</p>
             </td>
-            <td class="ecapRow">
+            <td>
                 <asp:TextBox ID="txtBuildingMemo" Width="100%" runat="server" Rows="10" 
                     TextMode="MultiLine"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td colspan="2" class="ecapRow" style="text-align:right;">
+            <td colspan="2" style="text-align:right;">
                 <asp:Button ID="btnCancel" runat="server" Text="Cancel" 
                     onclick="btnCancel_Click" />
                 &nbsp;

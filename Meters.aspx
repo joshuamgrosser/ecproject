@@ -12,16 +12,16 @@
     <p>
         <asp:Label runat="server" ID="lblBuilding"></asp:Label>
     </p>
-    <asp:GridView ID="grdMeters" CssClass="grdView" runat="server" AllowSorting="False" AutoGenerateColumns="False"
-        DataKeyNames="MeterInfoID" Width="100%" EmptyDataText="<p>Please first select a building from the Buildings page.</p>"
+    <asp:GridView ID="grdMeters" runat="server" AutoGenerateColumns="False"
+        DataKeyNames="MeterInfoID" Width="850px" EmptyDataText="<p>Please first select a building from the Buildings page.</p>"
         OnSelectedIndexChanged="grdMeters_SelectedIndexChanged">
         <Columns>
-            <asp:CommandField ShowSelectButton="True" />
             <asp:BoundField DataField="MeterInfoID" HeaderText="ID" InsertVisible="False" ReadOnly="True"
                 SortExpression="MeterInfoID" />
             <asp:BoundField DataField="MeterCode" HeaderText="Code" ReadOnly="True" SortExpression="MeterCode" />
             <asp:BoundField DataField="MeterName" HeaderText="Name" ReadOnly="True" SortExpression="MeterName" />
             <asp:BoundField DataField="MeterSerial" HeaderText="Serial" ReadOnly="True" SortExpression="MeterSerial" />
+            <asp:CommandField ShowSelectButton="True" SelectText="View Bills &gt;&gt;" />
         </Columns>
     </asp:GridView>
 </asp:Content>
