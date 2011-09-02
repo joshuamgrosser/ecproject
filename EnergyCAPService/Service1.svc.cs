@@ -93,5 +93,47 @@ namespace EnergyCAPService
 
             return bills;
         }
+
+        public Building GetBuildingDetails(int buildingID)
+        {
+            SqlParameter parameter = new SqlParameter();
+            parameter.ParameterName = "@buildingID";
+            parameter.Value = buildingID;
+
+            DataTable results = DataAccessLayer.getBuildingDetails(parameter);
+            Building building = new Building();
+
+            DataRow row = results.Rows[0];
+
+            building.BuildingID = buildingID;
+            building.BuildingCode = row[results.Columns["BuildingCode"]].ToString();
+            building.BuildingName = row[results.Columns["BuildingName"]].ToString();
+            building.BuildingMemo = row[results.Columns["BuildingMemo"]].ToString();
+
+            return building;
+        }
+
+        public String GetBuildingName(int buildingID)
+        {
+            SqlParameter parameter = new SqlParameter();
+            parameter.ParameterName = "@buildingID";
+            parameter.Value = buildingID;
+
+            return DataAccessLayer.getBuildingName(parameter);
+        }
+
+        public String GetMeterName(int meterInfoID)
+        {
+            SqlParameter parameter = new SqlParameter();
+            parameter.ParameterName = "@MeterInfoID";
+            parameter.Value = meterInfoID;
+
+            return DataAccessLayer.getMeterName(parameter);
+        }
+
+        public int UpdateBuildingDetails(Building building)
+        {
+            return 0;
+        }
     }
 }

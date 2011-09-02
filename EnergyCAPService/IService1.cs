@@ -24,6 +24,18 @@ namespace EnergyCAPService
 
         [OperationContract]
         Bill[] GetBillsForMeter(int meterID);
+
+        [OperationContract]
+        Building GetBuildingDetails(int buildingID);
+
+        [OperationContract]
+        string GetBuildingName(int buildingID);
+
+        [OperationContract]
+        string GetMeterName(int meterInfoID);
+
+        [OperationContract]
+        int UpdateBuildingDetails(Building building);
     }
 
     [DataContract]

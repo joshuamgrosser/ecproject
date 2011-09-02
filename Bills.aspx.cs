@@ -21,7 +21,7 @@ namespace EnergyCAP
         protected void Page_Load(object sender, EventArgs e)
         {
             populateBills();
-            //populateMeterLabel();
+            populateMeterLabel();
         }
 
         /// <summary>
@@ -88,15 +88,19 @@ namespace EnergyCAP
         protected void populateMeterLabel()
         {
             int meterID = getMeterIDFromSession();
-            SqlParameter param = new SqlParameter();
-            param.ParameterName = "@MeterInfoID";
-            param.Value = meterID;
+            //SqlParameter param = new SqlParameter();
+            //param.ParameterName = "@MeterInfoID";
+            //param.Value = meterID;
 
-            string result = DataAccessLayer.getMeterName(param);
+            //string result = DataAccessLayer.getMeterName(param);
 
-            if (result != null)
+            // Initialize the web service proxy class instance
+            ServiceReference1.Service1Client proxy = new Service1Client();
+            string meterName = proxy.GetMeterName(meterID);
+
+            if (meterName != null)
             {
-                lblMeter.Text = "You are currently viewing bills for " + result + ".";
+                lblMeter.Text = "You are currently viewing bills for " + meterName + ".";
             }
             else
             {

@@ -387,6 +387,18 @@ namespace EnergyCAP.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBillsForMeter", ReplyAction="http://tempuri.org/IService1/GetBillsForMeterResponse")]
         EnergyCAP.ServiceReference1.Bill[] GetBillsForMeter(int meterID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBuildingDetails", ReplyAction="http://tempuri.org/IService1/GetBuildingDetailsResponse")]
+        EnergyCAP.ServiceReference1.Building GetBuildingDetails(int buildingID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBuildingName", ReplyAction="http://tempuri.org/IService1/GetBuildingNameResponse")]
+        string GetBuildingName(int buildingID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetMeterName", ReplyAction="http://tempuri.org/IService1/GetMeterNameResponse")]
+        string GetMeterName(int meterInfoID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateBuildingDetails", ReplyAction="http://tempuri.org/IService1/UpdateBuildingDetailsResponse")]
+        int UpdateBuildingDetails(EnergyCAP.ServiceReference1.Building building);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -430,6 +442,22 @@ namespace EnergyCAP.ServiceReference1 {
         
         public EnergyCAP.ServiceReference1.Bill[] GetBillsForMeter(int meterID) {
             return base.Channel.GetBillsForMeter(meterID);
+        }
+        
+        public EnergyCAP.ServiceReference1.Building GetBuildingDetails(int buildingID) {
+            return base.Channel.GetBuildingDetails(buildingID);
+        }
+        
+        public string GetBuildingName(int buildingID) {
+            return base.Channel.GetBuildingName(buildingID);
+        }
+        
+        public string GetMeterName(int meterInfoID) {
+            return base.Channel.GetMeterName(meterInfoID);
+        }
+        
+        public int UpdateBuildingDetails(EnergyCAP.ServiceReference1.Building building) {
+            return base.Channel.UpdateBuildingDetails(building);
         }
     }
 }
