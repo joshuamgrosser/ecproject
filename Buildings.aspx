@@ -10,8 +10,10 @@
     <p>
         You are currently viewing all available buildings.
     </p>
-    <asp:GridView ID="grdBuildings" CssClass="grdView" runat="server" AutoGenerateColumns="False" DataKeyNames="BuildingID"
-        Width="100%" OnSelectedIndexChanged="grdBuildings_SelectedIndexChanged" OnRowCommand="grdBuildings_RowCommand">
+    <asp:GridView ID="grdBuildings" runat="server" 
+        AutoGenerateColumns="False" DataKeyNames="BuildingID"
+        Width="850px" OnSelectedIndexChanged="grdBuildings_SelectedIndexChanged" 
+        OnRowCommand="grdBuildings_RowCommand">
         <Columns>
             <asp:BoundField DataField="BuildingID" HeaderText="ID" InsertVisible="False" ReadOnly="True"
                 SortExpression="BuildingID" />
