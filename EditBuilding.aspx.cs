@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.ServiceModel;
+using EnergyCAP.EnergyCapSvcRef;
 
 namespace EnergyCAP
 {
@@ -29,19 +31,16 @@ namespace EnergyCAP
         /// </summary>
         protected void populateBuildingDetails()
         {
+            // Initialize the web service proxy class instance
+            EnergyCapSvcRef.EnergyCapServiceClient proxy = new EnergyCapServiceClient();
             int buildingID = getBuildingIDFromSession();
-            SqlParameter param = new SqlParameter();
-            param.ParameterName = "@buildingID";
-            param.Value = buildingID;
 
-            // Bind the data to grdBuildings
-            DataTable results = DataAccessLayer.getBuildingDetails(param);
-            DataRow row = results.Rows[0];
+            Building building = proxy.GetBuildingDetails(buildingID);
 
             // Populdate the textbox fields
-            txtBuildingName.Text = row[results.Columns["BuildingName"]].ToString();
-            txtBuildingCode.Text = row[results.Columns["BuildingCode"]].ToString();
-            txtBuildingMemo.Text = row[results.Columns["BuildingMemo"]].ToString();
+            txtBuildingName.Text = building.BuildingName;
+            txtBuildingCode.Text = building.BuildingCode;
+            txtBuildingMemo.Text = building.BuildingMemo;
         }
 
         /// <summary>
@@ -61,35 +60,17 @@ namespace EnergyCAP
         /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            // Compile the information from the form
-            SqlParameter[] parameters = new SqlParameter[4];
-
+            EnergyCapSvcRef.EnergyCapServiceClient proxy = new EnergyCapServiceClient();
             int buildingID = getBuildingIDFromSession();
-            SqlParameter paramBuildingID = new SqlParameter();
-            paramBuildingID.ParameterName = "@buildingID";
-            paramBuildingID.Value = buildingID;
-            parameters[0] = paramBuildingID;
 
-            string buildingCode = txtBuildingCode.Text;
-            SqlParameter paramBuildingCode = new SqlParameter();
-            paramBuildingCode.ParameterName = "@BuildingCode";
-            paramBuildingCode.Value = buildingCode;
-            parameters[1] = paramBuildingCode;
+            Building building = new Building();
+            building.BuildingID = buildingID;
+            building.BuildingCode = txtBuildingCode.Text;
+            building.BuildingName = txtBuildingName.Text;
+            building.BuildingMemo = txtBuildingMemo.Text;
 
-            string buildingName = txtBuildingName.Text;
-            SqlParameter paramBuildingName = new SqlParameter();
-            paramBuildingName.ParameterName = "@BuildingName";
-            paramBuildingName.Value = buildingName;
-            parameters[2] = paramBuildingName;
-
-            string buildingMemo = txtBuildingMemo.Text;
-            SqlParameter paramBuildingMemo = new SqlParameter();
-            paramBuildingMemo.ParameterName = "@BuildingMemo";
-            paramBuildingMemo.Value = buildingMemo;
-            parameters[3] = paramBuildingMemo;
-
-            // Update the selected building with the information from the form
-            DataAccessLayer.updateBuildingDetails(parameters);
+            // Update the building information in the database
+            proxy.UpdateBuildingDetails(building);
 
             // Redirect
             Response.Redirect("Buildings.aspx");

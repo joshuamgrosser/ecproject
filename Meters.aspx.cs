@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.ServiceModel;
-using EnergyCAP.ServiceReference1;
+using EnergyCAP.EnergyCapSvcRef;
 using System.Collections;
 
 namespace EnergyCAP
@@ -33,7 +33,7 @@ namespace EnergyCAP
             int buildingID = getBuildingIDFromSession();
 
             // Initialize the web service proxy class instance
-            ServiceReference1.Service1Client proxy = new Service1Client();
+            EnergyCapSvcRef.EnergyCapServiceClient proxy = new EnergyCapServiceClient();
 
             // Make the service call
             Meter[] meters = proxy.GetMetersForBuilding(buildingID);
@@ -75,7 +75,7 @@ namespace EnergyCAP
             int buildingID = getBuildingIDFromSession();
 
             // Initialize the web service proxy class instance
-            ServiceReference1.Service1Client proxy = new Service1Client();
+            EnergyCapSvcRef.EnergyCapServiceClient proxy = new EnergyCapServiceClient();
 
             string buildingName = proxy.GetBuildingName(buildingID);
 

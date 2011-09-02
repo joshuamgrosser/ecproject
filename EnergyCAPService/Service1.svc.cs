@@ -10,8 +10,7 @@ using System.Data.SqlClient;
 
 namespace EnergyCAPService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
-    public class Service1 : IService1
+    public class EnergyCapService : IEnergyCapService
     {
         public string GetData(int value)
         {
@@ -133,7 +132,35 @@ namespace EnergyCAPService
 
         public int UpdateBuildingDetails(Building building)
         {
-            return 0;
+            // Compile the updated building information
+            SqlParameter[] parameters = new SqlParameter[4];
+
+            int buildingID = building.BuildingID;
+            SqlParameter paramBuildingID = new SqlParameter();
+            paramBuildingID.ParameterName = "@buildingID";
+            paramBuildingID.Value = buildingID;
+            parameters[0] = paramBuildingID;
+
+            string buildingCode = building.BuildingCode;
+            SqlParameter paramBuildingCode = new SqlParameter();
+            paramBuildingCode.ParameterName = "@BuildingCode";
+            paramBuildingCode.Value = buildingCode;
+            parameters[1] = paramBuildingCode;
+
+            string buildingName = building.BuildingName;
+            SqlParameter paramBuildingName = new SqlParameter();
+            paramBuildingName.ParameterName = "@BuildingName";
+            paramBuildingName.Value = buildingName;
+            parameters[2] = paramBuildingName;
+
+            string buildingMemo = building.BuildingMemo;
+            SqlParameter paramBuildingMemo = new SqlParameter();
+            paramBuildingMemo.ParameterName = "@BuildingMemo";
+            paramBuildingMemo.Value = buildingMemo;
+            parameters[3] = paramBuildingMemo;
+
+            // Update the building details
+            return DataAccessLayer.updateBuildingDetails(parameters);
         }
     }
 }

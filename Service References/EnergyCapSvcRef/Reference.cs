@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EnergyCAP.ServiceReference1 {
+namespace EnergyCAP.EnergyCapSvcRef {
     using System.Runtime.Serialization;
     using System;
     
@@ -373,58 +373,58 @@ namespace EnergyCAP.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
-    public interface IService1 {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="EnergyCapSvcRef.IEnergyCapService")]
+    public interface IEnergyCapService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetData", ReplyAction="http://tempuri.org/IService1/GetDataResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEnergyCapService/GetData", ReplyAction="http://tempuri.org/IEnergyCapService/GetDataResponse")]
         string GetData(int value);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBuildings", ReplyAction="http://tempuri.org/IService1/GetBuildingsResponse")]
-        EnergyCAP.ServiceReference1.Building[] GetBuildings();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEnergyCapService/GetBuildings", ReplyAction="http://tempuri.org/IEnergyCapService/GetBuildingsResponse")]
+        EnergyCAP.EnergyCapSvcRef.Building[] GetBuildings();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetMetersForBuilding", ReplyAction="http://tempuri.org/IService1/GetMetersForBuildingResponse")]
-        EnergyCAP.ServiceReference1.Meter[] GetMetersForBuilding(int buildingID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEnergyCapService/GetMetersForBuilding", ReplyAction="http://tempuri.org/IEnergyCapService/GetMetersForBuildingResponse")]
+        EnergyCAP.EnergyCapSvcRef.Meter[] GetMetersForBuilding(int buildingID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBillsForMeter", ReplyAction="http://tempuri.org/IService1/GetBillsForMeterResponse")]
-        EnergyCAP.ServiceReference1.Bill[] GetBillsForMeter(int meterID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEnergyCapService/GetBillsForMeter", ReplyAction="http://tempuri.org/IEnergyCapService/GetBillsForMeterResponse")]
+        EnergyCAP.EnergyCapSvcRef.Bill[] GetBillsForMeter(int meterID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBuildingDetails", ReplyAction="http://tempuri.org/IService1/GetBuildingDetailsResponse")]
-        EnergyCAP.ServiceReference1.Building GetBuildingDetails(int buildingID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEnergyCapService/GetBuildingDetails", ReplyAction="http://tempuri.org/IEnergyCapService/GetBuildingDetailsResponse")]
+        EnergyCAP.EnergyCapSvcRef.Building GetBuildingDetails(int buildingID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBuildingName", ReplyAction="http://tempuri.org/IService1/GetBuildingNameResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEnergyCapService/GetBuildingName", ReplyAction="http://tempuri.org/IEnergyCapService/GetBuildingNameResponse")]
         string GetBuildingName(int buildingID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetMeterName", ReplyAction="http://tempuri.org/IService1/GetMeterNameResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEnergyCapService/GetMeterName", ReplyAction="http://tempuri.org/IEnergyCapService/GetMeterNameResponse")]
         string GetMeterName(int meterInfoID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateBuildingDetails", ReplyAction="http://tempuri.org/IService1/UpdateBuildingDetailsResponse")]
-        int UpdateBuildingDetails(EnergyCAP.ServiceReference1.Building building);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEnergyCapService/UpdateBuildingDetails", ReplyAction="http://tempuri.org/IEnergyCapService/UpdateBuildingDetailsResponse")]
+        int UpdateBuildingDetails(EnergyCAP.EnergyCapSvcRef.Building building);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IService1Channel : EnergyCAP.ServiceReference1.IService1, System.ServiceModel.IClientChannel {
+    public interface IEnergyCapServiceChannel : EnergyCAP.EnergyCapSvcRef.IEnergyCapService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class Service1Client : System.ServiceModel.ClientBase<EnergyCAP.ServiceReference1.IService1>, EnergyCAP.ServiceReference1.IService1 {
+    public partial class EnergyCapServiceClient : System.ServiceModel.ClientBase<EnergyCAP.EnergyCapSvcRef.IEnergyCapService>, EnergyCAP.EnergyCapSvcRef.IEnergyCapService {
         
-        public Service1Client() {
+        public EnergyCapServiceClient() {
         }
         
-        public Service1Client(string endpointConfigurationName) : 
+        public EnergyCapServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public Service1Client(string endpointConfigurationName, string remoteAddress) : 
+        public EnergyCapServiceClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public Service1Client(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public EnergyCapServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public Service1Client(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public EnergyCapServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
@@ -432,19 +432,19 @@ namespace EnergyCAP.ServiceReference1 {
             return base.Channel.GetData(value);
         }
         
-        public EnergyCAP.ServiceReference1.Building[] GetBuildings() {
+        public EnergyCAP.EnergyCapSvcRef.Building[] GetBuildings() {
             return base.Channel.GetBuildings();
         }
         
-        public EnergyCAP.ServiceReference1.Meter[] GetMetersForBuilding(int buildingID) {
+        public EnergyCAP.EnergyCapSvcRef.Meter[] GetMetersForBuilding(int buildingID) {
             return base.Channel.GetMetersForBuilding(buildingID);
         }
         
-        public EnergyCAP.ServiceReference1.Bill[] GetBillsForMeter(int meterID) {
+        public EnergyCAP.EnergyCapSvcRef.Bill[] GetBillsForMeter(int meterID) {
             return base.Channel.GetBillsForMeter(meterID);
         }
         
-        public EnergyCAP.ServiceReference1.Building GetBuildingDetails(int buildingID) {
+        public EnergyCAP.EnergyCapSvcRef.Building GetBuildingDetails(int buildingID) {
             return base.Channel.GetBuildingDetails(buildingID);
         }
         
@@ -456,7 +456,7 @@ namespace EnergyCAP.ServiceReference1 {
             return base.Channel.GetMeterName(meterInfoID);
         }
         
-        public int UpdateBuildingDetails(EnergyCAP.ServiceReference1.Building building) {
+        public int UpdateBuildingDetails(EnergyCAP.EnergyCapSvcRef.Building building) {
             return base.Channel.UpdateBuildingDetails(building);
         }
     }

@@ -9,7 +9,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
 using System.ServiceModel;
-using EnergyCAP.ServiceReference1;
+using EnergyCAP.EnergyCapSvcRef;
 
 namespace EnergyCAP
 {
@@ -31,7 +31,7 @@ namespace EnergyCAP
         protected void populateBuildings()
         {
             // Initialize the web service proxy class instance
-            ServiceReference1.Service1Client proxy = new Service1Client();
+            EnergyCapSvcRef.EnergyCapServiceClient proxy = new EnergyCapServiceClient();
 
             // Make the service call
             Building[] buildings = proxy.GetBuildings();
