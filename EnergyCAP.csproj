@@ -122,7 +122,6 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionConstants.cs" />
-    <Compile Include="SessionHelper.cs" />
     <Compile Include="Standard.master.cs">
       <DependentUpon>Standard.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
