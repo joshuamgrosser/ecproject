@@ -10,33 +10,51 @@
 namespace EnergyCAP {
     
     
-    public partial class Meters {
+    public partial class EditBuilding {
         
         /// <summary>
-        /// ScriptManager1 control.
+        /// txtBuildingCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        protected global::System.Web.UI.WebControls.TextBox txtBuildingCode;
         
         /// <summary>
-        /// lblBuilding control.
+        /// txtBuildingName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBuilding;
+        protected global::System.Web.UI.WebControls.TextBox txtBuildingName;
         
         /// <summary>
-        /// grdMeters control.
+        /// txtBuildingMemo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdMeters;
+        protected global::System.Web.UI.WebControls.TextBox txtBuildingMemo;
+        
+        /// <summary>
+        /// btnCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancel;
+        
+        /// <summary>
+        /// btnSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSubmit;
     }
 }

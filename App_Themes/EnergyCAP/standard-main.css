@@ -80,3 +80,30 @@ body
 {
     clear: both;
 }
+
+.grdView
+{
+    padding: 10px;
+}
+
+.ecapTable
+{
+    width: 500px;
+}
+
+.ecapHeader
+{
+    background-color: #999;
+    color: #fff;
+    padding: 10px;
+}
+
+.ecapRow
+{
+    padding: 10px;
+}
+
+.ecapRowName
+{
+    width: 200px;
+}

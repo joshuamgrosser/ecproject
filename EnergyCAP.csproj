@@ -55,6 +55,7 @@
     <Content Include="App_Themes\EnergyCAP\standard-main.css" />
     <Content Include="Bills.aspx" />
     <Content Include="Buildings.aspx" />
+    <Content Include="EditBuilding.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Meters.aspx" />
@@ -88,6 +89,13 @@
       <DependentUpon>Bills.aspx</DependentUpon>
     </Compile>
     <Compile Include="DataAccessLayer.cs" />
+    <Compile Include="EditBuilding.aspx.cs">
+      <DependentUpon>EditBuilding.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditBuilding.aspx.designer.cs">
+      <DependentUpon>EditBuilding.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -114,6 +122,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionConstants.cs" />
+    <Compile Include="SessionHelper.cs" />
     <Compile Include="Standard.master.cs">
       <DependentUpon>Standard.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

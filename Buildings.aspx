@@ -2,9 +2,6 @@
     CodeBehind="Buildings.aspx.cs" Inherits="EnergyCAP.Main" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphContent" runat="server">
-    <%--<asp:SqlDataSource ID="sdsBuilding" runat="server" ConnectionString="<%$ ConnectionStrings:energycapConnectionString %>"
-        SelectCommand="SELECT [BuildingID], [BuildingCode], [BuildingName] FROM [tblBuilding] ORDER BY [BuildingName]">
-    </asp:SqlDataSource>--%>
     <h2>
         Buildings</h2>
     <p>
@@ -13,16 +10,15 @@
     <p>
         You are currently viewing all available buildings.
     </p>
-    <p>
-        <asp:GridView ID="grdBuildings" runat="server" AllowSorting="False" AutoGenerateColumns="False"
-            DataKeyNames="BuildingID" Width="100%" OnSelectedIndexChanged="grdBuildings_SelectedIndexChanged">
-            <Columns>
-                <asp:CommandField ShowSelectButton="True" />
-                <asp:BoundField DataField="BuildingID" HeaderText="ID" InsertVisible="False" ReadOnly="True"
-                    SortExpression="BuildingID" />
-                <asp:BoundField DataField="BuildingCode" HeaderText="Code" ReadOnly="True" SortExpression="BuildingCode" />
-                <asp:BoundField DataField="BuildingName" HeaderText="Name" SortExpression="BuildingName" />
-            </Columns>
-        </asp:GridView>
-    </p>
+    <asp:GridView ID="grdBuildings" CssClass="grdView" runat="server" AutoGenerateColumns="False" DataKeyNames="BuildingID"
+        Width="100%" OnSelectedIndexChanged="grdBuildings_SelectedIndexChanged" OnRowCommand="grdBuildings_RowCommand">
+        <Columns>
+            <asp:BoundField DataField="BuildingID" HeaderText="ID" InsertVisible="False" ReadOnly="True"
+                SortExpression="BuildingID" />
+            <asp:BoundField DataField="BuildingCode" HeaderText="Code" ReadOnly="True" SortExpression="BuildingCode" />
+            <asp:BoundField DataField="BuildingName" HeaderText="Name" SortExpression="BuildingName" />
+            <asp:ButtonField CommandName="EditBuilding" Text="Edit &gt;&gt;" />
+            <asp:CommandField ShowSelectButton="True" SelectText="View Meters &gt;&gt;" />
+        </Columns>
+    </asp:GridView>
 </asp:Content>

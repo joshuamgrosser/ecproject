@@ -24,7 +24,7 @@ namespace EnergyCAP
         /// <summary>
         /// SQL script to retrieve the list of buildings and associated data from the database.
         /// </summary>
-        protected static readonly string sqlGetBuildings = @"SELECT [BuildingID], [BuildingCode], [BuildingName] FROM [tblBuilding] ORDER BY [BuildingName]";
+        protected static readonly string sqlGetBuildings = @"SELECT [BuildingID], [BuildingCode], [BuildingName], [BuildingMemo] FROM [tblBuilding] ORDER BY [BuildingName]";
 
         /// <summary>
         /// SQL script to retrieve the list of meters and associated data from the database, given a building ID.
@@ -37,6 +37,18 @@ namespace EnergyCAP
         /// </summary>
         protected static readonly string sqlGetBills = @"SELECT [BillMtrID], [MtrCost], [MtrUse], [MtrBDem], [MtrADem], [MtrStartDate], [MtrEndDate], " +
             "[ReportYear], [ReportMonth] FROM [tblBillMtr] WHERE [tblBillMtr].[MeterInfoID] = @MeterInfoID ORDER BY [BillMtrID]";
+
+        /// <summary>
+        /// SQL script to retrive the details for a particular building.
+        /// </summary>
+        protected static readonly string sqlGetBuidlingDetails = @"SELECT [BuildingID], [BuildingCode], [BuildingName], [BuildingMemo] FROM [tblBuilding] " +
+            "WHERE [tblBuilding].[buildingID] = @buildingID";
+
+        /// <summary>
+        /// SQL script to update the details of a particular building.
+        /// </summary>
+        protected static readonly string sqlUpdateBuildingDetails = @"UPDATE [tblBuilding] SET [BuildingCode] = @BuildingCode, [BuildingName] = @BuildingName, " +
+            " [BuildingMemo] = @BuildingMemo WHERE [tblBuilding].[buildingID] = @buildingID";
 
         /// <summary>
         /// SQL script to retrieve a single building name given the ID.
@@ -65,19 +77,31 @@ namespace EnergyCAP
         /// <summary>
         /// Queries the database for the current list of buildings.
         /// </summary>
+        /// <param name="parameters">The building ID.</param>
         /// <returns>A DataTable containing the query results.</returns>
-        public static DataTable getMeters(params SqlParameter[] buildingID)
+        public static DataTable getMeters(params SqlParameter[] parameters)
         {
-            return executeQuery(sqlGetMeters, buildingID);
+            return executeQuery(sqlGetMeters, parameters);
         }
 
         /// <summary>
         /// Queries the database for the current list of buildings.
         /// </summary>
+        /// <param name="parameters">The meter ID.</param>
         /// <returns>A DataTable containing the query results.</returns>
-        public static DataTable getBills(params SqlParameter[] meterID)
+        public static DataTable getBills(params SqlParameter[] parameters)
         {
-            return executeQuery(sqlGetBills, meterID);
+            return executeQuery(sqlGetBills, parameters);
+        }
+
+        /// <summary>
+        /// Queries the database for a single building details, given the building ID.
+        /// </summary>
+        /// <param name="buildingID">The building ID.</param>
+        /// <returns>A DataTable containing the query results.</returns>
+        public static DataTable getBuildingDetails(params SqlParameter[] parameters)
+        {
+            return executeQuery(sqlGetBuidlingDetails, parameters);
         }
 
         /// <summary>
@@ -85,9 +109,9 @@ namespace EnergyCAP
         /// </summary>
         /// <param name="buildingID">The building ID.</param>
         /// <returns>A string containing the query results.</returns>
-        public static string getBuildingName(params SqlParameter[] buildingID)
+        public static string getBuildingName(params SqlParameter[] parameters)
         {
-            return executeScalarQuery(sqlGetBuildingName, buildingID);
+            return executeScalarQuery(sqlGetBuildingName, parameters);
         }
 
         /// <summary>
@@ -95,9 +119,19 @@ namespace EnergyCAP
         /// </summary>
         /// <param name="buildingID">The building ID.</param>
         /// <returns>A string containing the query results.</returns>
-        public static string getMeterName(params SqlParameter[] meterID)
+        public static string getMeterName(params SqlParameter[] parameters)
         {
-            return executeScalarQuery(sqlGetMeterName, meterID);
+            return executeScalarQuery(sqlGetMeterName, parameters);
+        }
+
+        /// <summary>
+        /// Updates values for a particular building in the buildings table.
+        /// </summary>
+        /// <param name="parameters">The building ID.</param>
+        /// <returns>The number of rows affected. Should always be 1 if only one building is affected.</returns>
+        public static int updateBuildingDetails(params SqlParameter[] parameters)
+        {
+            return executeNonQuery(sqlUpdateBuildingDetails, parameters);
         }
 
         /// <summary>
@@ -199,6 +233,59 @@ namespace EnergyCAP
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Executes the selected SQL query in order to modify rows in a database table (i.e. DELETE or UPDATE).
+        /// </summary>
+        /// <param name="queryString">The query string to execute.</param>
+        /// <param name="paramsArray">SQL query parameters.</param>
+        /// <returns>The number of rows affected.</returns>
+        protected static int executeNonQuery(string queryString, params SqlParameter[] paramsArray)
+        {
+            // Initialize the DB connection
+            SqlConnection connection = new SqlConnection(connectionStr);
+
+            // Init return value
+            int numRowsAffected = 0;
+
+            // Initialize the command
+            SqlCommand sqlCommand = new SqlCommand(queryString, connection);
+            DataTable dt = new DataTable();
+
+            // Open the connection
+            if (connection.State == ConnectionState.Closed || connection.State == ConnectionState.Broken)
+            {
+                connection.Open();
+            }
+
+            // Add the parameters to the command
+            if (paramsArray != null)
+            {
+                foreach (SqlParameter param in paramsArray)
+                {
+                    sqlCommand.Parameters.Add(param);
+                }
+            }
+
+            try
+            {
+                // Execute the command
+                numRowsAffected = (int)sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                string test = ex.Message;
+            }
+            finally
+            {
+                // Cleanup
+                sqlCommand.Dispose();
+                connection.Close();
+            }
+
+            // Return the number of rows affected
+            return numRowsAffected;
         }
     }
 }
