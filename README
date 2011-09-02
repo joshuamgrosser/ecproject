@@ -7,6 +7,10 @@ by J. Grosser
 - Microsoft IIS 7+
 
 *** Build Instructions ***
-- Open the solution file (EnergyCAP.sln) in Visual studio.
-- Modify the database connection string in web.config to match your local EnergyCAP database.
-- Click the "Run" button in Visual Studio to launch the web application.
+   1. Clone the same EnergyCAP repo on your test PC in a new folder.
+   2. Browse to the folder in a Git Bash window.
+   3. Switch branches to the "service_solution" branch ("git checkout service_solution").
+   4. Open Visual Studio 2010 and load the solution. You should see two projects under the solution.
+   5. Update the database connection string in the EnergyCAPService project only - not in the web application project.
+   6. Right-click on the EnergyCAPService project and click "View in Browser" to make sure the service is running.
+   7. Build the solution in Visual Studio, then click the Run button.
