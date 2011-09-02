@@ -6,6 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.ServiceModel;
+using EnergyCAP.ServiceReference1;
+using System.Collections;
 
 namespace EnergyCAP
 {
@@ -19,7 +22,7 @@ namespace EnergyCAP
         protected void Page_Load(object sender, EventArgs e)
         {
             populateMeters();
-            populateBuildingLabel();
+            //populateBuildingLabel();
         }
 
         /// <summary>
@@ -28,13 +31,39 @@ namespace EnergyCAP
         protected void populateMeters()
         {
             int buildingID = getBuildingIDFromSession();
-            SqlParameter param = new SqlParameter();
-            param.ParameterName = "@buildingID";
-            param.Value = buildingID;
-            
-            // Bind the data to grdMeters
-            DataTable dataTable = DataAccessLayer.getMeters(param);
-            grdMeters.DataSource = dataTable;
+
+            // Initialize the web service proxy class instance
+            ServiceReference1.Service1Client proxy = new Service1Client();
+
+            // Make the service call
+            Meter[] meters = proxy.GetMetersForBuilding(buildingID);
+
+            // Construct a DataTable to store the results
+            DataTable results = new DataTable();
+            DataColumn col1 = new DataColumn("MeterInfoID");
+            DataColumn col2 = new DataColumn("MeterCode");
+            DataColumn col3 = new DataColumn("MeterName");
+            DataColumn col4 = new DataColumn("MeterSerial");
+
+            results.Columns.Add(col1);
+            results.Columns.Add(col2);
+            results.Columns.Add(col3);
+            results.Columns.Add(col4);
+
+            // Add each building to the DataTable
+            for (int i = 0; i < meters.Length; i++)
+            {
+                ArrayList valArrayList = new ArrayList();
+                valArrayList.Add(meters[i].MeterInfoID);
+                valArrayList.Add(meters[i].MeterCode);
+                valArrayList.Add(meters[i].MeterName);
+                valArrayList.Add(meters[i].MeterSerial);
+
+                DataRow row = results.Rows.Add(valArrayList.ToArray());
+            }
+
+            // Bind the data to grdBuildings
+            grdMeters.DataSource = results;
             grdMeters.DataBind();
         }
 

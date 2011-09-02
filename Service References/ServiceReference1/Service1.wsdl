@@ -19,6 +19,18 @@
   <wsdl:message name="IService1_GetBuildings_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetBuildingsResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetMetersForBuilding_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMetersForBuilding" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetMetersForBuilding_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMetersForBuildingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetBillsForMeter_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBillsForMeter" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetBillsForMeter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBillsForMeterResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -27,6 +39,14 @@
     <wsdl:operation name="GetBuildings">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetBuildings" message="tns:IService1_GetBuildings_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetBuildingsResponse" message="tns:IService1_GetBuildings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMetersForBuilding">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetMetersForBuilding" message="tns:IService1_GetMetersForBuilding_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetMetersForBuildingResponse" message="tns:IService1_GetMetersForBuilding_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBillsForMeter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetBillsForMeter" message="tns:IService1_GetBillsForMeter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetBillsForMeterResponse" message="tns:IService1_GetBillsForMeter_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -42,6 +62,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetBuildings">
       <soap:operation soapAction="http://tempuri.org/IService1/GetBuildings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMetersForBuilding">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetMetersForBuilding" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBillsForMeter">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetBillsForMeter" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
+using EnergyCAP.ServiceReference1;
+using System.Collections;
 
 namespace EnergyCAP
 {
@@ -19,7 +21,7 @@ namespace EnergyCAP
         protected void Page_Load(object sender, EventArgs e)
         {
             populateBills();
-            populateMeterLabel();
+            //populateMeterLabel();
         }
 
         /// <summary>
@@ -28,13 +30,55 @@ namespace EnergyCAP
         protected void populateBills()
         {
             int meterID = getMeterIDFromSession();
-            SqlParameter param = new SqlParameter();
-            param.ParameterName = "@MeterInfoID";
-            param.Value = meterID;
+            
+            // Initialize the web service proxy class instance
+            ServiceReference1.Service1Client proxy = new Service1Client();
 
-            // Bind the data to grdMeters
-            DataTable dataTable = DataAccessLayer.getBills(param);
-            grdBills.DataSource = dataTable;
+            // Make the service call
+            Bill[] bills = proxy.GetBillsForMeter(meterID);
+
+            // Construct a DataTable to store the results
+            DataTable results = new DataTable();
+            DataColumn col1 = new DataColumn("BillMtrID");
+            DataColumn col2 = new DataColumn("MtrCost");
+            DataColumn col3 = new DataColumn("MtrUse");
+            DataColumn col4 = new DataColumn("MtrBDem");
+            DataColumn col5 = new DataColumn("MtrADem");
+            DataColumn col6 = new DataColumn("MtrStartDate");
+            DataColumn col7 = new DataColumn("MtrEndDate");
+            DataColumn col8 = new DataColumn("ReportYear");
+            DataColumn col9 = new DataColumn("ReportMonth");
+
+            results.Columns.Add(col1);
+            results.Columns.Add(col2);
+            results.Columns.Add(col3);
+            results.Columns.Add(col4);
+            results.Columns.Add(col5);
+            results.Columns.Add(col6);
+            results.Columns.Add(col7);
+            results.Columns.Add(col8);
+            results.Columns.Add(col9);
+
+            // Add each building to the DataTable
+            for (int i = 0; i < bills.Length; i++)
+            {
+                ArrayList valArrayList = new ArrayList();
+                valArrayList.Add(bills[i].BillID);
+                valArrayList.Add(bills[i].MeterCost);
+                valArrayList.Add(bills[i].MeterUse);
+                valArrayList.Add(bills[i].MeterBDem);
+
+                valArrayList.Add(bills[i].MeterADem);
+                valArrayList.Add(bills[i].MeterStartDate);
+                valArrayList.Add(bills[i].MeterEndDate);
+                valArrayList.Add(bills[i].ReportYear);
+                valArrayList.Add(bills[i].ReportMonth);
+
+                DataRow row = results.Rows.Add(valArrayList.ToArray());
+            }
+
+            // Bind the data to grdBuildings
+            grdBills.DataSource = results;
             grdBills.DataBind();
         }
 

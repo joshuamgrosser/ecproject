@@ -15,4 +15,39 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Building" nillable="true" type="tns:Building" />
+  <xs:complexType name="ArrayOfMeter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Meter" nillable="true" type="tns:Meter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMeter" nillable="true" type="tns:ArrayOfMeter" />
+  <xs:complexType name="Meter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MeterCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MeterInfoID" type="xs:int" />
+      <xs:element minOccurs="0" name="MeterName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MeterSerial" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Meter" nillable="true" type="tns:Meter" />
+  <xs:complexType name="ArrayOfBill">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Bill" nillable="true" type="tns:Bill" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBill" nillable="true" type="tns:ArrayOfBill" />
+  <xs:complexType name="Bill">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BillID" type="xs:int" />
+      <xs:element minOccurs="0" name="MeterADem" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MeterBDem" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MeterCost" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MeterEndDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MeterStartDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MeterUse" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReportMonth" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReportYear" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Bill" nillable="true" type="tns:Bill" />
 </xs:schema>

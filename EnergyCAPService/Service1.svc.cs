@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace EnergyCAPService
 {
@@ -36,6 +37,61 @@ namespace EnergyCAPService
             }
             
             return buildings;
+        }
+
+        public Meter[] GetMetersForBuilding(int buildingID)
+        {
+            SqlParameter parameter = new SqlParameter();
+            parameter.ParameterName = "@buildingID";
+            parameter.Value = buildingID;
+
+            DataTable results = DataAccessLayer.getMeters(parameter);
+            Meter[] meters = new Meter[results.Rows.Count];
+
+            int counter = 0;
+
+            // Create a meter from each row
+            foreach (DataRow row in results.Rows)
+            {
+                meters[counter] = new Meter();
+                meters[counter].MeterInfoID = int.Parse(row[results.Columns["MeterInfoID"]].ToString());
+                meters[counter].MeterCode = row[results.Columns["MeterCode"]].ToString();
+                meters[counter].MeterName = row[results.Columns["MeterName"]].ToString();
+                meters[counter].MeterSerial = row[results.Columns["MeterSerial"]].ToString();
+                counter++;
+            }
+
+            return meters;
+        }
+
+        public Bill[] GetBillsForMeter(int meterInfoID)
+        {
+            SqlParameter parameter = new SqlParameter();
+            parameter.ParameterName = "@MeterInfoID";
+            parameter.Value = meterInfoID;
+
+            DataTable results = DataAccessLayer.getBills(parameter);
+            Bill[] bills = new Bill[results.Rows.Count];
+
+            int counter = 0;
+
+            // Create a meter from each row
+            foreach (DataRow row in results.Rows)
+            {
+                bills[counter] = new Bill();
+                bills[counter].BillMtrID = int.Parse(row[results.Columns["BillMtrID"]].ToString());
+                bills[counter].MeterCost = row[results.Columns["MtrCost"]].ToString();
+                bills[counter].MeterUse = row[results.Columns["MtrUse"]].ToString();
+                bills[counter].MeterBDem = row[results.Columns["MtrBDem"]].ToString();
+                bills[counter].MeterADem = row[results.Columns["MtrADem"]].ToString();
+                bills[counter].MeterStartDate = row[results.Columns["MtrStartDate"]].ToString();
+                bills[counter].MeterEndDate = row[results.Columns["MtrEndDate"]].ToString();
+                bills[counter].ReportYear = row[results.Columns["ReportYear"]].ToString();
+                bills[counter].ReportMonth = row[results.Columns["ReportMonth"]].ToString();
+                counter++;
+            }
+
+            return bills;
         }
     }
 }

@@ -39,8 +39,8 @@ namespace EnergyCAP
             // Construct a DataTable to store the results
             DataTable results = new DataTable();
             DataColumn col1 = new DataColumn("BuildingID");
-            DataColumn col3 = new DataColumn("BuildingCode");
-            DataColumn col2 = new DataColumn("BuildingName");
+            DataColumn col2 = new DataColumn("BuildingCode");
+            DataColumn col3 = new DataColumn("BuildingName");
 
             results.Columns.Add(col1);
             results.Columns.Add(col2);

@@ -27,4 +27,32 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetMetersForBuilding">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="buildingID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMetersForBuildingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/EnergyCAPService" minOccurs="0" name="GetMetersForBuildingResult" nillable="true" type="q2:ArrayOfMeter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBillsForMeter">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="meterID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBillsForMeterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/EnergyCAPService" minOccurs="0" name="GetBillsForMeterResult" nillable="true" type="q3:ArrayOfBill" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

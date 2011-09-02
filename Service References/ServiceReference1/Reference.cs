@@ -106,6 +106,272 @@ namespace EnergyCAP.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Meter", Namespace="http://schemas.datacontract.org/2004/07/EnergyCAPService")]
+    [System.SerializableAttribute()]
+    public partial class Meter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MeterCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MeterInfoIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MeterNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MeterSerialField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MeterCode {
+            get {
+                return this.MeterCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MeterCodeField, value) != true)) {
+                    this.MeterCodeField = value;
+                    this.RaisePropertyChanged("MeterCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MeterInfoID {
+            get {
+                return this.MeterInfoIDField;
+            }
+            set {
+                if ((this.MeterInfoIDField.Equals(value) != true)) {
+                    this.MeterInfoIDField = value;
+                    this.RaisePropertyChanged("MeterInfoID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MeterName {
+            get {
+                return this.MeterNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MeterNameField, value) != true)) {
+                    this.MeterNameField = value;
+                    this.RaisePropertyChanged("MeterName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MeterSerial {
+            get {
+                return this.MeterSerialField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MeterSerialField, value) != true)) {
+                    this.MeterSerialField = value;
+                    this.RaisePropertyChanged("MeterSerial");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Bill", Namespace="http://schemas.datacontract.org/2004/07/EnergyCAPService")]
+    [System.SerializableAttribute()]
+    public partial class Bill : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int BillIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MeterADemField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MeterBDemField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MeterCostField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MeterEndDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MeterStartDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MeterUseField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ReportMonthField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ReportYearField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int BillID {
+            get {
+                return this.BillIDField;
+            }
+            set {
+                if ((this.BillIDField.Equals(value) != true)) {
+                    this.BillIDField = value;
+                    this.RaisePropertyChanged("BillID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MeterADem {
+            get {
+                return this.MeterADemField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MeterADemField, value) != true)) {
+                    this.MeterADemField = value;
+                    this.RaisePropertyChanged("MeterADem");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MeterBDem {
+            get {
+                return this.MeterBDemField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MeterBDemField, value) != true)) {
+                    this.MeterBDemField = value;
+                    this.RaisePropertyChanged("MeterBDem");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MeterCost {
+            get {
+                return this.MeterCostField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MeterCostField, value) != true)) {
+                    this.MeterCostField = value;
+                    this.RaisePropertyChanged("MeterCost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MeterEndDate {
+            get {
+                return this.MeterEndDateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MeterEndDateField, value) != true)) {
+                    this.MeterEndDateField = value;
+                    this.RaisePropertyChanged("MeterEndDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MeterStartDate {
+            get {
+                return this.MeterStartDateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MeterStartDateField, value) != true)) {
+                    this.MeterStartDateField = value;
+                    this.RaisePropertyChanged("MeterStartDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MeterUse {
+            get {
+                return this.MeterUseField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MeterUseField, value) != true)) {
+                    this.MeterUseField = value;
+                    this.RaisePropertyChanged("MeterUse");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ReportMonth {
+            get {
+                return this.ReportMonthField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ReportMonthField, value) != true)) {
+                    this.ReportMonthField = value;
+                    this.RaisePropertyChanged("ReportMonth");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ReportYear {
+            get {
+                return this.ReportYearField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ReportYearField, value) != true)) {
+                    this.ReportYearField = value;
+                    this.RaisePropertyChanged("ReportYear");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -115,6 +381,12 @@ namespace EnergyCAP.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBuildings", ReplyAction="http://tempuri.org/IService1/GetBuildingsResponse")]
         EnergyCAP.ServiceReference1.Building[] GetBuildings();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetMetersForBuilding", ReplyAction="http://tempuri.org/IService1/GetMetersForBuildingResponse")]
+        EnergyCAP.ServiceReference1.Meter[] GetMetersForBuilding(int buildingID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBillsForMeter", ReplyAction="http://tempuri.org/IService1/GetBillsForMeterResponse")]
+        EnergyCAP.ServiceReference1.Bill[] GetBillsForMeter(int meterID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -150,6 +422,14 @@ namespace EnergyCAP.ServiceReference1 {
         
         public EnergyCAP.ServiceReference1.Building[] GetBuildings() {
             return base.Channel.GetBuildings();
+        }
+        
+        public EnergyCAP.ServiceReference1.Meter[] GetMetersForBuilding(int buildingID) {
+            return base.Channel.GetMetersForBuilding(buildingID);
+        }
+        
+        public EnergyCAP.ServiceReference1.Bill[] GetBillsForMeter(int meterID) {
+            return base.Channel.GetBillsForMeter(meterID);
         }
     }
 }
