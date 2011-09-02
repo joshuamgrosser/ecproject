@@ -17,31 +17,43 @@ namespace EnergyCAPService
         string GetData(int value);
 
         [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
-
-        // TODO: Add your service operations here
+        Building GetBuildings();
     }
 
-
-    // Use a data contract as illustrated in the sample below to add composite types to service operations.
     [DataContract]
-    public class CompositeType
+    public class Building
     {
-        bool boolValue = true;
-        string stringValue = "Hello ";
+        int buildingID = -1;
+        string buildingCode = "123ABC";
+        string buildingName = "YMCA";
+        string buildingMemo = "The YMCA has the best facilities in the area.";
 
         [DataMember]
-        public bool BoolValue
+        public int BuildingID
         {
-            get { return boolValue; }
-            set { boolValue = value; }
+            get { return buildingID; }
+            set { buildingID = value; }
         }
 
         [DataMember]
-        public string StringValue
+        public string BuildingCode
         {
-            get { return stringValue; }
-            set { stringValue = value; }
+            get { return buildingCode; }
+            set { buildingCode = value; }
+        }
+
+        [DataMember]
+        public string BuildingName
+        {
+            get { return buildingName; }
+            set { buildingName = value; }
+        }
+
+        [DataMember]
+        public string BuildingMemo
+        {
+            get { return buildingMemo; }
+            set { buildingMemo = value; }
         }
     }
 }

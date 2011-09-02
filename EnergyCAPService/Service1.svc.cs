@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Data;
 
 namespace EnergyCAPService
 {
@@ -16,17 +17,21 @@ namespace EnergyCAPService
             return string.Format("You entered: {0}", value);
         }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        public Building GetBuildings()
         {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
+            Building building = new Building();
+            //DataTable dataTable = DataAccessLayer.getBuildings();
+
+            //// Bind the data to grdBuildings
+            //foreach(DataRow row in 
+            //DataRow row = results.Rows[0];
+
+            //// Populdate the textbox fields
+            //txtBuildingName.Text = row[results.Columns["BuildingName"]].ToString();
+            //txtBuildingCode.Text = row[results.Columns["BuildingCode"]].ToString();
+            //txtBuildingMemo.Text = row[results.Columns["BuildingMemo"]].ToString();
+
+            return building;
         }
     }
 }
