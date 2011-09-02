@@ -114,7 +114,7 @@ namespace EnergyCAP.ServiceReference1 {
         string GetData(int value);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBuildings", ReplyAction="http://tempuri.org/IService1/GetBuildingsResponse")]
-        EnergyCAP.ServiceReference1.Building GetBuildings();
+        EnergyCAP.ServiceReference1.Building[] GetBuildings();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -148,7 +148,7 @@ namespace EnergyCAP.ServiceReference1 {
             return base.Channel.GetData(value);
         }
         
-        public EnergyCAP.ServiceReference1.Building GetBuildings() {
+        public EnergyCAP.ServiceReference1.Building[] GetBuildings() {
             return base.Channel.GetBuildings();
         }
     }

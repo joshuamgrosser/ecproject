@@ -114,7 +114,7 @@ namespace TestServiceClient.ServiceReference1 {
         string GetData(int value);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBuildings", ReplyAction="http://tempuri.org/IService1/GetBuildingsResponse")]
-        TestServiceClient.ServiceReference1.Building GetBuildings();
+        TestServiceClient.ServiceReference1.Building[] GetBuildings();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -148,7 +148,7 @@ namespace TestServiceClient.ServiceReference1 {
             return base.Channel.GetData(value);
         }
         
-        public TestServiceClient.ServiceReference1.Building GetBuildings() {
+        public TestServiceClient.ServiceReference1.Building[] GetBuildings() {
             return base.Channel.GetBuildings();
         }
     }

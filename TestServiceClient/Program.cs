@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.ServiceModel;
 using TestServiceClient.ServiceReference1;
+using System.Data;
 
 namespace TestServiceClient
 {
@@ -13,11 +14,16 @@ namespace TestServiceClient
         {
             ServiceReference1.Service1Client proxy = new Service1Client();
 
-            Building building = proxy.GetBuildings();
-            Console.WriteLine("ID: " + building.BuildingID);
-            Console.WriteLine("Name: " + building.BuildingName);
-            Console.WriteLine("Code: " + building.BuildingCode);
-            Console.WriteLine("Memo: " + building.BuildingMemo);
+            Building[] buildings = proxy.GetBuildings();
+
+            for (int i = 0; i < buildings.Length; i++)
+            {
+                Console.WriteLine("ID: " + buildings[i].BuildingID);
+                Console.WriteLine("Name: " + buildings[i].BuildingName);
+                Console.WriteLine("Code: " + buildings[i].BuildingCode);
+                Console.WriteLine("Memo: " + buildings[i].BuildingMemo + "\n\n");
+            }
+           
             Console.ReadLine();
         }
     }

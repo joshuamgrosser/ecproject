@@ -17,21 +17,25 @@ namespace EnergyCAPService
             return string.Format("You entered: {0}", value);
         }
 
-        public Building GetBuildings()
+        public Building[] GetBuildings()
         {
-            Building building = new Building();
-            //DataTable dataTable = DataAccessLayer.getBuildings();
+            DataTable results = DataAccessLayer.getBuildings();
+            Building[] buildings = new Building[results.Rows.Count];
 
-            //// Bind the data to grdBuildings
-            //foreach(DataRow row in 
-            //DataRow row = results.Rows[0];
+            int counter = 0;
 
-            //// Populdate the textbox fields
-            //txtBuildingName.Text = row[results.Columns["BuildingName"]].ToString();
-            //txtBuildingCode.Text = row[results.Columns["BuildingCode"]].ToString();
-            //txtBuildingMemo.Text = row[results.Columns["BuildingMemo"]].ToString();
-
-            return building;
+            // Create a building from each row
+            foreach (DataRow row in results.Rows)
+            {
+                buildings[counter] = new Building();
+                buildings[counter].BuildingID = int.Parse(row[results.Columns["BuildingID"]].ToString());
+                buildings[counter].BuildingCode = row[results.Columns["BuildingCode"]].ToString();
+                buildings[counter].BuildingName = row[results.Columns["BuildingName"]].ToString();
+                buildings[counter].BuildingMemo = row[results.Columns["BuildingMemo"]].ToString();
+                counter++;
+            }
+            
+            return buildings;
         }
     }
 }

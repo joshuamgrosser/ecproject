@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Data;
 
 namespace EnergyCAPService
 {
@@ -17,7 +18,7 @@ namespace EnergyCAPService
         string GetData(int value);
 
         [OperationContract]
-        Building GetBuildings();
+        Building[] GetBuildings();
     }
 
     [DataContract]

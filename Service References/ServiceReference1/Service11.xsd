@@ -23,7 +23,7 @@
   <xs:element name="GetBuildingsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/EnergyCAPService" minOccurs="0" name="GetBuildingsResult" nillable="true" type="q1:Building" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/EnergyCAPService" minOccurs="0" name="GetBuildingsResult" nillable="true" type="q1:ArrayOfBuilding" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

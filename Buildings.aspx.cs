@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -7,6 +8,8 @@ using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
+using System.ServiceModel;
+using EnergyCAP.ServiceReference1;
 
 namespace EnergyCAP
 {
@@ -27,8 +30,39 @@ namespace EnergyCAP
         /// </summary>
         protected void populateBuildings()
         {
+            // Initialize the web service proxy class instance
+            ServiceReference1.Service1Client proxy = new Service1Client();
+
+            // Make the service call
+            Building[] buildings = proxy.GetBuildings();
+
+            // Construct a DataTable to store the results
+            DataTable results = new DataTable();
+            DataColumn col1 = new DataColumn("BuildingID");
+            DataColumn col3 = new DataColumn("BuildingCode");
+            DataColumn col2 = new DataColumn("BuildingName");
+
+            results.Columns.Add(col1);
+            results.Columns.Add(col2);
+            results.Columns.Add(col3);
+
+            // Add each building to the DataTable
+            for (int i = 0; i < buildings.Length; i++)
+            {
+                Console.WriteLine("ID: " + buildings[i].BuildingID);
+                Console.WriteLine("Code: " + buildings[i].BuildingCode);
+                Console.WriteLine("Name: " + buildings[i].BuildingName);
+
+                ArrayList valArrayList = new ArrayList();
+                valArrayList.Add(buildings[i].BuildingID);
+                valArrayList.Add(buildings[i].BuildingCode);
+                valArrayList.Add(buildings[i].BuildingName);
+
+                DataRow row = results.Rows.Add(valArrayList.ToArray());
+            }
+
             // Bind the data to grdBuildings
-            grdBuildings.DataSource = DataAccessLayer.getBuildings();
+            grdBuildings.DataSource = results;
             grdBuildings.DataBind();
         }
 

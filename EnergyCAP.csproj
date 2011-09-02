@@ -65,6 +65,7 @@
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="App_Themes\EnergyCAP\standard-menu.css" />
+    <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Service References\ServiceReference1\EnergyCAP.ServiceReference1.Building.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
