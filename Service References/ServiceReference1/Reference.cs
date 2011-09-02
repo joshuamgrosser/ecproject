@@ -209,7 +209,7 @@ namespace EnergyCAP.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int BillIDField;
+        private int BillMtrIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MeterADemField;
@@ -246,14 +246,14 @@ namespace EnergyCAP.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int BillID {
+        public int BillMtrID {
             get {
-                return this.BillIDField;
+                return this.BillMtrIDField;
             }
             set {
-                if ((this.BillIDField.Equals(value) != true)) {
-                    this.BillIDField = value;
-                    this.RaisePropertyChanged("BillID");
+                if ((this.BillMtrIDField.Equals(value) != true)) {
+                    this.BillMtrIDField = value;
+                    this.RaisePropertyChanged("BillMtrID");
                 }
             }
         }

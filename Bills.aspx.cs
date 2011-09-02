@@ -63,7 +63,7 @@ namespace EnergyCAP
             for (int i = 0; i < bills.Length; i++)
             {
                 ArrayList valArrayList = new ArrayList();
-                valArrayList.Add(bills[i].BillID);
+                valArrayList.Add(bills[i].BillMtrID);
                 valArrayList.Add(bills[i].MeterCost);
                 valArrayList.Add(bills[i].MeterUse);
                 valArrayList.Add(bills[i].MeterBDem);

@@ -38,7 +38,7 @@
   <xs:element name="ArrayOfBill" nillable="true" type="tns:ArrayOfBill" />
   <xs:complexType name="Bill">
     <xs:sequence>
-      <xs:element minOccurs="0" name="BillID" type="xs:int" />
+      <xs:element minOccurs="0" name="BillMtrID" type="xs:int" />
       <xs:element minOccurs="0" name="MeterADem" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="MeterBDem" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="MeterCost" nillable="true" type="xs:string" />
