@@ -5,7 +5,7 @@
     <h2>
         Buildings</h2>
     <p>
-        Click the <strong>Select</strong> button next to a particular building to view the
+        Click the <strong>View Meters</strong> button next to a particular building to view the
         <strong>Meters</strong> associated with that building.</p>
     <p>
         You are currently viewing all available buildings.

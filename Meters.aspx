@@ -7,7 +7,7 @@
     <h2>
         Meters</h2>
     <p>
-        Click the <strong>Select</strong> button next to a particular meter to view the
+        Click the <strong>View Bills</strong> button next to a particular meter to view the
         <strong>Bills</strong> associated with that meter.</p>
     <p>
         <asp:Label runat="server" ID="lblBuilding"></asp:Label>
