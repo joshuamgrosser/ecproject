@@ -1,15 +1,10 @@
-EnergyCAP, Inc. Interview Project
-by J. Grosser
-
 *** Requirements ***
 - Visual Studio 2010
 - SQL Server Express 2008 R2
 - Microsoft IIS
 
 *** Build Instructions ***
-   1. Go to GitHub.com and fork the EnergyCAP repo (eleosdesign/EnergyCAP).
-   2. Clone the repo on your test PC.
-   3. Using Git Bash, make sure you are on the master branch ("git branch").
-   4. Open Visual Studio 2010 and load the solution by browsing for the EnergyCAP.sln file.
-   5. Change the database connection string in the web.config file to connect to your test database.
-   6. Build the project in Visual Studio, then click the Run button.
+   * Clone the repo on your test PC.
+   * Open Visual Studio 2010 and load the solution by browsing for the EnergyCAP.sln file.
+   * Change the database connection string in the web.config file to connect to your test database.
+   * Build the project in Visual Studio, then click the Run button.
